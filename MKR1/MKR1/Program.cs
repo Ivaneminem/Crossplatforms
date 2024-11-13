@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MKR1.Models;
+using MKR1.Services;
+using System;
 using System.IO;
 using System.Linq;
 
@@ -7,41 +9,34 @@ class Program
     static void Main()
     {
         // Читання даних із файлу INPUT.TXT
-        var lines = File.ReadAllLines("INPUT.TXT");
+        var orders = LoadOrders("INPUT.TXT");
+
+        // Ініціалізація калькулятора винагороди
+        var calculator = new MaxRewardCalculator();
+
+        // Обчислення максимальної винагороди
+        int totalReward = calculator.CalculateMaxReward(orders);
+
+        // Запис результату у файл OUTPUT.TXT
+        File.WriteAllText("OUTPUT.TXT", totalReward.ToString());
+
+        Console.WriteLine("Максимальна винагорода записана у OUTPUT.TXT.");
+    }
+
+    private static List<Order> LoadOrders(string filePath)
+    {
+        var lines = File.ReadAllLines(filePath);
         int n = int.Parse(lines[0]);
-        var orders = new (int Ti, int Ci)[n];
+        var orders = new List<Order>();
 
         for (int i = 0; i < n; i++)
         {
             var parts = lines[i + 1].Split();
             int Ti = int.Parse(parts[0]);
             int Ci = int.Parse(parts[1]);
-            orders[i] = (Ti, Ci);
+            orders.Add(new Order(Ti, Ci));
         }
 
-        // Сортуємо замовлення за винагородою у порядку спадання
-        orders = orders.OrderByDescending(order => order.Ci).ToArray();
-
-        // Масив для відмітки виконаних днів
-        bool[] days = new bool[1001];
-        int totalReward = 0;
-
-        // Проходимо через кожне замовлення
-        foreach (var order in orders)
-        {
-            // Знаходимо найближчий доступний день для виконання
-            for (int day = order.Ti; day > 0; day--)
-            {
-                if (!days[day])
-                {
-                    days[day] = true;
-                    totalReward += order.Ci;
-                    break;
-                }
-            }
-        }
-
-        // Записуємо результат у файл OUTPUT.TXT
-        File.WriteAllText("OUTPUT.TXT", totalReward.ToString());
+        return orders;
     }
 }

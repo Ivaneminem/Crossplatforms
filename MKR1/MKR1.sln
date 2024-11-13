@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MKR1", "MKR1\MKR1.csproj", "{AC4E2CBB-A3E6-4BB3-903C-6103A94C5EBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MKR1", "MKR1\MKR1.csproj", "{AC4E2CBB-A3E6-4BB3-903C-6103A94C5EBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MKR1.Tests", "..\MKR1.Tests\MKR1.Tests.csproj", "{71ABBA4C-1709-45EE-8AFF-4BBCF3EA9787}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{AC4E2CBB-A3E6-4BB3-903C-6103A94C5EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC4E2CBB-A3E6-4BB3-903C-6103A94C5EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC4E2CBB-A3E6-4BB3-903C-6103A94C5EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71ABBA4C-1709-45EE-8AFF-4BBCF3EA9787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71ABBA4C-1709-45EE-8AFF-4BBCF3EA9787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71ABBA4C-1709-45EE-8AFF-4BBCF3EA9787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71ABBA4C-1709-45EE-8AFF-4BBCF3EA9787}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
